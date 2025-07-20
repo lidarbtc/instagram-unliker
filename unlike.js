@@ -1,5 +1,5 @@
 /**
- * Instagram Like Removal Script – Enhanced Timing (2025)
+ * Instagram Like Removal Script - Enhanced Timing (2025)
  * based on the comment activity deleter by sbolel, fixed and modified to work for likes as well
  * COPYRIGHT:
  * 1. https://gist.github.com/sbolel/a2b2bfde16b3ab185fbc2e2049240abc
