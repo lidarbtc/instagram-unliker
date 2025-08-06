@@ -117,7 +117,7 @@
 				await clickElement(selectButton);
 				await delay(DELAY_AFTER_SELECT_CLICK_MS);
 
-				let checkboxes = document.querySelectorAll(
+				const checkboxes = document.querySelectorAll(
 					'[aria-label="Toggle checkbox"]',
 				);
 				if (checkboxes.length === 0) {
