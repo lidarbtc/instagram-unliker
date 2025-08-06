@@ -55,14 +55,11 @@
 
 	const waitForSelectButton = async () => {
 		for (let i = 0; i < MAX_RETRIES; i++) {
-			const buttons = document.querySelectorAll('[role="button"]');
+			const selectSpan = [...document.querySelectorAll("span")].find(
+				(el) => el.textContent.trim().toLowerCase() === "select",
+			);
 
-			const selectButton = Array.from(buttons).find((button) => {
-				const text = button.textContent.trim().toLowerCase();
-				return text.includes("select");
-			});
-
-			if (selectButton) {
+			if (selectSpan) {
 				console.log(`✅ Select button found after ${i} seconds`);
 				return;
 			}
@@ -110,8 +107,12 @@
 	const removeLikes = async () => {
 		try {
 			while (true) {
-				const [, selectButton] = document.querySelectorAll('[role="button"]');
-				if (!selectButton) throw new Error("Select button not found");
+				const selectSpan = [...document.querySelectorAll("span")].find(
+					(el) => el.textContent.trim().toLowerCase() === "select",
+				);
+				if (!selectSpan) throw new Error("Select button not found");
+				const selectButton = selectSpan.parentElement;
+				if (!selectButton) throw new Error("Select button container not found");
 
 				await clickElement(selectButton);
 				await delay(DELAY_AFTER_SELECT_CLICK_MS);
